@@ -1,0 +1,37 @@
+# Git
+.git/
+.github/
+
+.gitattributes
+.gitignore
+.gitkeep
+
+# Pre-commit
+.pre-commit-config.yaml
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Repository docs
+*.md
+
+# EditorConfig
+.editorconfig
+
+# IDE
+.idea/
+.vscode/
+
+# Other
+.cache/
+.local/
+
+Desktop.ini
+Thumbs.db
+
+$RECYCLE.BIN/
+
+*.pid
+*.lnk
+*.log
