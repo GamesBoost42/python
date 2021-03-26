@@ -9,7 +9,7 @@ Base image with pre-installed [pip](https://pypi.org/project/pip/) and [poetry](
 Basic `Dockerfile` example:
 
 ```Dockerfile
-FROM ghcr.io/gamesboost42/python:3.9 AS python3
+FROM ghcr.io/gamesboost42/python:3.8 AS python3
 
 COPY pyproject.toml poetry.lock ./
 RUN poetry install && rm -rf ~/.cache

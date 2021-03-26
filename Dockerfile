@@ -1,4 +1,4 @@
-FROM docker.io/library/python:3.9.2-slim@sha256:38bc45ae1b48cb0e8726d601b4a8774b9033770afe7bc51c341f643ffb841a27 AS python-base
+FROM docker.io/library/python:3.8.8-slim@sha256:844516c3ee480be693de258bf25c033eca7b9b0b1d75b2fbdc11c0b73233eb90 AS python-base
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
