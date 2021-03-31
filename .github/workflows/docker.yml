@@ -9,20 +9,20 @@ on:
     tags:
       - 3.*
 
-env:
-  IMAGE_NAME: python
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+      - name: Update scripts permissions
+        run: chmod 0755 .github/scripts/*.sh
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build slim docker image
+        run: .github/scripts/build-slim.sh
 
       - name: Push image
         run: |
