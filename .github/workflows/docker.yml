@@ -23,16 +23,3 @@ jobs:
 
       - name: Build slim docker image
         run: .github/scripts/build-slim.sh
-
-      - name: Push image
-        run: |
-          IMAGE_ID=ghcr.io/${{ github.repository }}
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          [ "$VERSION" == "master" ] && VERSION=latest
-          IMAGE_TAG=$IMAGE_ID:$VERSION
-
-          echo IMAGE_TAG=$IMAGE_TAG
-
-          docker tag $IMAGE_NAME $IMAGE_TAG
-          docker push $IMAGE_TAG
