@@ -18,7 +18,7 @@ sha256=$(cat SHA256)
 version=$(cat VERSION)
 buildDate=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
 gitBranch=$(git branch --show-current)
-gitTag=$(git describe --tags "$(git rev-list --tags --max-count=1)" 2>/dev/null)
+gitTag=$(git describe --exact-match --tags 2>/dev/null)
 
 fromTag="docker.io/library/python:$version-slim@sha256:$sha256"
 
@@ -45,5 +45,5 @@ docker build . \
 	--build-arg VCS_REF="$gitTag" \
 	"$@"
 
-docker push "$imageId:$gitBranch"
-docker push "$imageId:$gitTag"
+echo docker push "$imageId:$gitBranch"
+echo docker push "$imageId:$gitTag"
