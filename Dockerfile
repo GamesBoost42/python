@@ -24,7 +24,7 @@ LABEL architecture="amd64/x86_64" \
       org.opencontainers.image.revision=${VCS_REF} \
       org.opencontainers.image.created=${BUILD_DATE}
 
-ENV APP_ROOT=/app \
+ENV APP_ROOT="/app" \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PYTHON_GET_PIP_SHA256= \
